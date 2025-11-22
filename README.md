@@ -1,38 +1,56 @@
-# BCG PowerCo Churn Analysis
+# BCG PowerCo – Customer Churn Analysis  
+**Exploratory Data Analysis | Python | Pandas | Seaborn**
 
-Exploratory Data Analysis (EDA) for BCG PowerCo's customer churn prediction case study using Python and Jupyter Notebook.
+![Python](https://img.shields.io/badge/python-3670A0?style=flat&logo=python&logoColor=ffdd54)
+![Pandas](https://img.shields.io/badge/pandas-%23150458.svg?style=flat&logo=pandas&logoColor=white)
+![Seaborn](https://img.shields.io/badge/Seaborn-3776AB?style=flat&logo=python&logoColor=white)
 
-## Overview
-This repository contains a Jupyter Notebook for analyzing customer churn data from BCG's PowerCo case. The analysis includes:
-- Data loading and cleaning
-- Descriptive statistics and data types
-- Visualizations of distributions, correlations, and price sensitivity
-- Key insights on churn rates, customer behavior, and pricing trends
+**Candidate:** Hlangalezwe Zulu
 
-The notebook uses libraries like Pandas, Matplotlib, and Seaborn to explore two datasets: client data (consumption, forecasts, churn) and historical pricing data.
+**Date:** November 2025  
 
-## Datasets
-- `client_data (1).csv`: Customer details, consumption, and churn indicators.
-- `price_data (1).csv`: Historical variable and fixed prices.
+---
 
-(Note: Datasets are not included in this repo due to size/privacy; reference them in your local environment.)
+### Key Business Insights
 
-## How to Run
-1. Clone the repo: `git clone https://github.com/your-username/bcg-powerco-churn-analysis.git`
-2. Install dependencies: `pip install pandas numpy matplotlib seaborn`
-3. Open in Jupyter: `jupyter notebook bcg_x_churn.ipynb`
-4. Or use Google Colab: Upload the .ipynb to colab.research.google.com and run.
+| Metric                          | Value             | Insight                                                                 |
+|---------------------------------|-------------------|-------------------------------------------------------------------------|
+| Total Customers                 | 14,606            | —                                                                       |
+| **Overall Churn Rate**          | **9.72%**         | Highly imbalanced → use class weighting / SMOTE                        |
+| Electricity-only customers      | 81.8%             | Gas contracts are a small minority                                      |
+| Average customer tenure         | 5.0 years         | Long-term, stable customer base                                         |
+| Price changes in 2015           | Multiple jumps    | Strong signal for price-sensitivity features                           |
 
-## Key Insights
-- Churn rate: ~9.72% (imbalanced dataset).
-- Most customers (~81.8%) use electricity only.
-- Consumption and margins are right-skewed—log transforms recommended for modeling.
-- Prices varied in 2015, highlighting potential sensitivity features.
+---
 
-## Next Steps
-This EDA sets up for modeling (e.g., Logistic Regression or XGBoost). Future work: Feature engineering and predictive modeling.
+### Key Visualizations
 
-## License
-MIT License—feel free to use and adapt.
+| Annual Consumption Distribution (log scale)              | Off-Peak Price vs Churn                              |
+|-----------------------------------------------------------|-------------------------------------------------------|
+| ![consumption](consumption_distribution.png)             | ![price vs churn](price_vs_churn.png)                 |
 
-Author: Hlangalezwe Zulu| Date: November 23, 2025
+| Correlation Heatmap of Key Features                       | Price Evolution Over Time (Sample)                    |
+|-----------------------------------------------------------|-------------------------------------------------------|
+| ![heatmap](correlation_heatmap.png)                       | ![evolution](price_evolution.png)                     |
+
+| Customer Tenure by Churn                                  |
+|-----------------------------------------------------------|
+| ![tenure](tenure_vs_churn.png)                            |
+
+---
+
+### Notebook
+Full analysis with code, cleaning, and explanations:  
+[bcg x Churn.ipynb](bcg%20x%20Churn.ipynb)
+
+---
+
+### Next Steps (Modeling)
+- Log-transform skewed features  
+- Engineer price-sensitivity features (6-month % change, max jump)  
+- Train XGBoost / LightGBM with class weights  
+
+ 
+Feel free to star or fork!
+
+---
